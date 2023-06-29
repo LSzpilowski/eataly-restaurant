@@ -2,6 +2,7 @@ import TopNav from "./components/TopNav";
 import Featured from "./components/Featured";
 import Delivery from "./components/Delivery";
 import TopPics from "./components/TopPicks";
+import Meal from "./components/Meal";
 
 
 
@@ -12,6 +13,7 @@ function App() {
       <Featured />
       <Delivery />
       <TopPics />
+      <Meal />
     </div>
   );
 }

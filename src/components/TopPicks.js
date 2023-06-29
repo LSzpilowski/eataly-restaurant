@@ -15,7 +15,7 @@ const TopPics = () => {
             return (
               <SplideSlide>
                 <div className="relative rounded-3xl">
-                  <div className="absolute w-full h-full bg-black/40 rounded-3xl ">
+                  <div className="absolute w-full h-full bg-black/30 hover:bg-black/10 rounded-3xl ">
                     <p className="px-2 text-white font-bold text-xl mt-2 mx-2">
                       {item.title}
                     </p>
