@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { mealData } from "../data/data";
 
+
 const Meal = () => {
   const [foods, setFoods] = useState(mealData);
   const fillterCat = (category) => {
@@ -10,6 +11,8 @@ const Meal = () => {
       })
     );
   };
+
+
 
   return (
     <div className="max-w-[1520px] m-auto px-4 py-12">
@@ -48,20 +51,21 @@ const Meal = () => {
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 rounded-3xl max-h-[200px] w-full py-2">
         {foods.map((item) => {
           return (
-            <div className="border-none w-full object-cover rounded-3xl cursor-pointer hover:scale-105 ease-out duration-300">
+            <div className="border-none w-full object-cover rounded-3xl text-indigo-600">
               <img
                 src={item.image}
                 alt={item.name}
                 className="h-[200px] w-full rounded-xl"
               />
               <div className="flex justify-between py-2 px-4">
-                <p className="font-bold">{item.name}</p>
+                <a href="/" className="font-bold">{item.name}</a>
                 <p className="bg-orange-700 h-18 w-18 rounded-full -mt-12 text-white py-3.5 px-2 border-8 border-white font-bold">
                   {item.price}
                 </p>
               </div>
-              <div className="pl-4 -mt-2 mb-3 ">
-                <p className="flex items-center text-indigo-600">
+              <div className="pl-4 -mt-2 mb-3 cursor-pointer flex"
+              >
+                {/* <p className="flex items-center text-indigo-600">
                   More Details{" "}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -77,7 +81,7 @@ const Meal = () => {
                       d="M17 8l4 4m0 0l-4 4m4-4H3"
                     />
                   </svg>
-                </p>
+                </p> */}
               </div>
             </div>
           );
