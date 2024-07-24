@@ -3,13 +3,15 @@ import { cn } from "@/lib/utils";
 import { ThemeProvider } from "./theme-provider";
 import "@/styles/globals.css"
 import { fontSans } from "@/lib/fonts";
+import Navbar from "./components/navbar";
+import Footer from "./components/footer";
 
 export const metadata: Metadata = {
   title: {
-    default: "Dictionary App",
-    template: `Dictionary App`,
+    default: "LucAround Restaurant",
+    template: `LucAround Restaurant`,
   },
-  description: "Simple Dictionary App - learning purpose",
+  description: "Simple LucAround Restaurant app - learning purpose",
 };
 
 export default function RootLayout({
@@ -24,7 +26,11 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <ThemeProvider attribute="class" defaultTheme="system">
+          <div className="w-full min-h-screen flex flex-col justify-between items-center">
+          <Navbar />
           {children}
+          <Footer />
+          </div>
         </ThemeProvider>
       </body>
     </html>
