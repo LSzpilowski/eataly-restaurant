@@ -10,82 +10,73 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const AppDescription = [
+const MenuDescription = [
   {
-    title: "Add Products to Cart:",
+    title: "Starters:",
     description:
       "Easily browse and add a variety of products to your cart from our extensive catalog.",
   },
   {
-    title: "Creative Ideas:",
+    title: "Main Courses:",
     description:
-      "Receive personalized ideas and recommendations based on the products you add to your cart.",
+      "Savor the heart of Italian cuisine with our main courses. From classic Margherita Pizza to creamy Spaghetti Carbonara, each dish is prepared with authentic ingredients and traditional recipes to transport you to Italy.",
   },
   {
-    title: "Buy Products:",
+    title: "Desserts",
     description:
-      "Purchase the products directly within the app with a seamless and secure checkout process.",
+      "End your meal on a sweet note with our irresistible desserts. Delight in the layers of Tiramisu, the smoothness of Panna Cotta, or the crunch of a Cannoli. Each dessert is a perfect conclusion to your dining experience.",
   },
   {
-    title: "Free Delivery:",
+    title: "Hot drinks",
     description:
-      "Enjoy free delivery on all orders over £25, ensuring you get your items quickly and without extra cost.",
+      "Warm up with our selection of hot drinks. Whether you prefer a strong Espresso, a frothy Cappuccino, or a soothing cup of tea, we have the perfect beverage to complement your meal.",
   },
   {
-    title: "Restaurant Orders:",
+    title: "Soft drinks",
     description:
-      "Order delicious food from a wide selection of local restaurants listed in the app.",
-  },
-  {
-    title: "Convenient:",
-    description:
-      "Experience the convenience of having groceries and restaurant meals delivered straight to your doorstep.",
+      "Refresh yourself with our variety of soft drinks. Choose from sparkling Italian sodas, zesty Limonata, or classic Cola. Our soft drinks are perfect for all ages and taste preferences.",
   },
 ];
 
 const Delivery = () => {
   return (
-    <Card className="w-full flex flex-col items-center border-0">
+    <Card className="w-3/4 flex flex-col items-center border-0 pt-5">
       <CardHeader>
         <CardTitle className="text-orange-500 font-bold text-3xl text-center">
-          Quick Delivery App
+          Our New Menu
         </CardTitle>
       </CardHeader>
-      <CardContent className="w-2/3 flex flex-row px-10 items-center gap-10  ">
-        <Link
-          className="w-2/5 mx-auto hover:scale-105 duration-300"
-          target="_blank"
-          href="https://www.ubereats.com/be-en/brand/quick"
-        >
+      <CardContent className="w-full flex flex-row items-center justify-between p-0 gap-10">
+        <div className="w-1/3">
           <Image
-            alt="Phone Photos"
-            src="https://res.cloudinary.com/ehizeex-shop/image/upload/v1672676822/NetflixApp/FC_two_phones.6ec9a842f905769677f9_m91off.webp"
-            width={800}
-            height={450}
+          className="rounded-xl"
+            src="/img/people-above.png"
+            alt="people-above"
+            width={450}
+            height={800}
             quality={100}
           />
-        </Link>
-        <Card className="w-3/5 flex flex-col justify-between border-0">
-          <CardHeader>
+        </div>
+        <Card className="w-2/3 flex flex-col justify-between border-0">
+          <CardHeader className="pt-0">
             <CardTitle className="md:text-4xl sm:text-3xl text-2xl font-bold ">
-              Limitless Convenience on-demand
+              Limitless paradise of flavours
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <ul className="list-disc ">
-              {AppDescription.map((item, index) => {
+            <ul className="list-disc">
+              {MenuDescription.map((item, index) => {
                 return (
-                  <li key={index}>
+                  <li key={index} className="pt-3">
                     <strong>{item.title}</strong> {item.description}
                   </li>
                 );
               })}
             </ul>
           </CardContent>
-          <CardFooter>
+          <CardFooter className="pb-0">
             <Link
-              target="_blank"
-              href="https://www.ubereats.com/be-en/brand/quick"
+              href="/home/menu"
             >
               <Button className="bg-orange-700 text-white hover:bg-white hover:text-orange-700 font-medium">
                 Get Started
