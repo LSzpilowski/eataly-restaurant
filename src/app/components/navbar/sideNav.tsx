@@ -1,9 +1,9 @@
 import React from "react";
 import { AiOutlineClose } from "react-icons/ai";
-import { BsPerson } from "react-icons/bs";
-import { FaGoogleWallet } from "react-icons/fa";
+import { BsPersonFill } from "react-icons/bs";
+import { GiCook } from "react-icons/gi";
 import { TbTruckReturn } from "react-icons/tb";
-import { MdHelp, MdOutlineFavorite, MdMenuBook } from "react-icons/md";
+import { MdOutlineFavorite, MdMenuBook, MdRestaurantMenu } from "react-icons/md";
 import Link from "next/link";
 
 
@@ -15,33 +15,33 @@ interface ISideNavProps {
 const Links = [
   {
     url: "/home/menu",
-    icon: <MdMenuBook />,
+    icon: <MdRestaurantMenu />,
     title: "Menu"
   },
   {
-    url: "/home/myAccount",
-    icon: <BsPerson />,
+    url: "/home/account",
+    icon: <BsPersonFill />,
     title: "My Account",
   },
   {
+    url: "/home/account/favourites",
+    icon: <MdOutlineFavorite />,
+    title: "My Favourite",
+  },
+{
     url: "/home/delivery",
     icon: <TbTruckReturn />,
     title: "Delivery",
   },
   {
-    url: "/home/myFavourites",
-    icon: <MdOutlineFavorite />,
-    title: "My Favourite",
+    url: "/home/newsletter",
+    icon: <MdMenuBook />,
+    title: "Newsletter",
   },
   {
-    url: "/home/myWallet",
-    icon: <FaGoogleWallet />,
-    title: "My Wallet",
-  },
-  {
-    url: "/home/help",
-    icon: <MdHelp />,
-    title: "My Help",
+    url: "/home/about",
+    icon: <GiCook />,
+    title: "About Us",
   },
 ];
 

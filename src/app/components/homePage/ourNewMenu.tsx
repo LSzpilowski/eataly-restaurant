@@ -38,10 +38,10 @@ const MenuDescription = [
   },
 ];
 
-const Delivery = () => {
+const OurNewMenu = () => {
   return (
-    <Card className="w-3/4 flex flex-col items-center border-0 pt-5">
-      <CardHeader>
+    <Card className="w-full flex flex-col items-center border-0">
+      <CardHeader className="pt-0">
         <CardTitle className="text-orange-500 font-bold text-3xl text-center">
           Our New Menu
         </CardTitle>
@@ -89,4 +89,4 @@ const Delivery = () => {
   );
 };
 
-export default Delivery;
+export default OurNewMenu;

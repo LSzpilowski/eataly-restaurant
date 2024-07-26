@@ -59,6 +59,15 @@
   }
 }
 
+* {
+  box-sizing: border-box;
+  @apply border-border;
+}
+
+.custom-min-height {
+  min-height: calc(100vh - 119px);
+}
+
 @layer base {
   * {
     @apply border-border;

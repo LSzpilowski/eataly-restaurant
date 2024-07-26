@@ -1,16 +1,15 @@
-import Delivery from "../components/delivery";
-import FoodSlider from "../components/foodSlider";
-import TopPicks from "../components/topPicks";
+import FoodSlider from "../components/homePage/foodSlider";
+import OurNewMenu from "../components/homePage/ourNewMenu";
+import TopPicks from "../components/homePage/topPicks";
 
-
-
-
-export default function HomePage() {
+ function HomePage() {
   return (
-    <div className="w-full min-h-screen flex flex-col items-center gap-5">
+    <div className="w-3/4 flex flex-col items-center gap-16 py-10">
       <FoodSlider />
-      <Delivery />
+      <OurNewMenu />
       <TopPicks />
     </div>
   );
 }
+
+export default HomePage;
