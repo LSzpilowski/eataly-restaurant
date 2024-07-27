@@ -1,10 +1,12 @@
-"use client"
+"use client";
 
 import { useState } from "react";
 import { GiMeal, GiHotMeal } from "react-icons/gi";
 import { FaIceCream } from "react-icons/fa";
 import { PiCoffeeFill } from "react-icons/pi";
 import { RiDrinks2Fill } from "react-icons/ri";
+import { LuMenu } from "react-icons/lu";
+import { CiGrid41 } from "react-icons/ci";
 import {
   Tooltip,
   TooltipContent,
@@ -12,11 +14,9 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
-
-
 const CategoryButtons = [
   {
-    category: "All"
+    category: "All",
   },
   {
     icon: <GiMeal key={1} />,
@@ -41,32 +41,93 @@ const CategoryButtons = [
 ];
 
 function FilterCategory() {
-
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [isListLayout, setIsListLayout] = useState<boolean>(false);
+  const [isGridLayout, setIsGridLayout] = useState<boolean>(true);
+  const [activeIndex, setActiveIndex] = useState<number>(0);
 
   const handleClick = (index: number) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
-  
+
   return (
-        <div className="w-full border-b-2 flex flex-row justify-center  items-center gap-6 px-5 py-2 sticky top-[79px]">
+    <div className="w-full flex flex-row sticky top-[79px]">
+      <div className="w-full flex flex-row justify-end border-b-2 py-1">
+        <div className="w-2/3 flex flex-row justify-center items-center gap-6   ">
           {CategoryButtons.map((item, index) => (
             <TooltipProvider delayDuration={100} key={index}>
-              <Tooltip >
-                <TooltipTrigger className={`border-2 m-1 rounded-full  ${activeIndex === index ? "bg-orange-700" : "hover:bg-secondary"}`}>
-                  {item.icon ? <div onClick={() => handleClick(index)} className="text-2xl p-3">{item.icon}</div>
-                  : 
-                  <p className="px-3 py-[0.62rem] m-0 text-lg font-bold" onClick={() => handleClick(index)} >{item.category}</p>}
-                  
+              <Tooltip>
+                <TooltipTrigger
+                  className={`border-2 m-1 rounded-full  ${
+                    activeIndex === index
+                      ? "bg-orange-700"
+                      : "hover:bg-secondary"
+                  }`}
+                >
+                  {item.icon ? (
+                    <div
+                      onClick={() => handleClick(index)}
+                      className="text-2xl p-3"
+                    >
+                      {item.icon}
+                    </div>
+                  ) : (
+                    <p
+                      className="px-3 py-[0.62rem] m-0 text-lg font-bold"
+                      onClick={() => handleClick(index)}
+                    >
+                      {item.category}
+                    </p>
+                  )}
                 </TooltipTrigger>
-                <TooltipContent  side="bottom">
+                <TooltipContent side="bottom">
                   <p>{item.category}</p>
                 </TooltipContent>
               </Tooltip>
             </TooltipProvider>
           ))}
         </div>
-
+        <div className="flex flex-row justify-center items-center w-1/6  ">
+          <div className="flex flex-row border-2 rounded-full w-24 ">
+            <TooltipProvider delayDuration={100}>
+              <Tooltip>
+                <TooltipTrigger
+                  onClick={() => {
+                    setIsListLayout(true),
+                    setIsGridLayout(false);
+                  }}
+                  className={`${
+                    isListLayout === true
+                      ? "bg-orange-700"
+                      : "hover:bg-secondary"
+                  }  flex flex-row justify-center w-1/2 border-r-[1px] rounded-tl-full rounded-bl-full py-2 `}
+                >
+                  <LuMenu />
+                </TooltipTrigger>
+                <TooltipContent side="bottom">List Layout</TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+            <TooltipProvider delayDuration={100}>
+              <Tooltip>
+                <TooltipTrigger
+                  onClick={() => {
+                    setIsGridLayout(true),
+                    setIsListLayout(false);
+                  }}
+                  className={`${
+                    isGridLayout === true
+                      ? "bg-orange-700 border-[1px]"
+                      : "hover:bg-secondary"
+                  } flex flex-row justify-center w-1/2 border-l-[1px] rounded-tr-full rounded-br-full py-2`}
+                >
+                  <CiGrid41 />
+                </TooltipTrigger>
+                <TooltipContent side="bottom">Grid layout</TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 
