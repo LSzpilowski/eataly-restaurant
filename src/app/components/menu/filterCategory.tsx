@@ -43,10 +43,10 @@ const CategoryButtons = [
 function FilterCategory() {
   const [isListLayout, setIsListLayout] = useState<boolean>(false);
   const [isGridLayout, setIsGridLayout] = useState<boolean>(true);
-  const [activeIndex, setActiveIndex] = useState<number>(0);
+  const [activeCategoryIndex, setActiveCategoryIndex] = useState<number>(0);
 
   const handleClick = (index: number) => {
-    setActiveIndex(activeIndex === index ? null : index);
+    setActiveCategoryIndex(activeCategoryIndex === index ? null : index);
   };
 
   return (
@@ -58,7 +58,7 @@ function FilterCategory() {
               <Tooltip>
                 <TooltipTrigger
                   className={`border-2 m-1 rounded-full  ${
-                    activeIndex === index
+                    activeCategoryIndex === index
                       ? "bg-orange-700 border-slate-300"
                       : "hover:bg-secondary"
                   }`}

@@ -3,10 +3,9 @@ import FilterDetails from '@/app/components/menu/filterDetails';
 
 function MenuPage() {
   return (
-    <div className='w-full flex flex-col items-center custom-min-height '>
+    <div className='w-full flex flex-col  custom-min-height '>
       <FilterCategory />
       <FilterDetails />
-
 
     </div>
   );

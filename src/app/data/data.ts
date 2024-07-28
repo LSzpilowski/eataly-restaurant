@@ -34,7 +34,7 @@ export const mealData: IMealData[] = [
     name: "Bruschetta al Pomodoro",
     category: "starters",
     image: "/bruschetta_al_pomodoro.png",
-    price: "£5.00",
+    price: "£8.00",
     isTopPick: true,
     foodType: {
       lowCalories: true,
@@ -64,7 +64,7 @@ export const mealData: IMealData[] = [
     name: "Caprese Salad",
     category: "starters",
     image: "/caprese_salad.png",
-    price: "£6.50",
+    price: "£9.50",
     isTopPick: false,
     foodType: {
       lowCalories: true,
@@ -94,7 +94,7 @@ export const mealData: IMealData[] = [
     name: "Antipasto Platter",
     category: "starters",
     image: "/antipasto_platter.png",
-    price: "£8.00",
+    price: "£12.00",
     isTopPick: false,
     foodType: {
       lowCalories: false,
@@ -124,7 +124,7 @@ export const mealData: IMealData[] = [
     name: "Calamari Fritti",
     category: "starters",
     image: "/calamari_fritti.png",
-    price: "£7.50",
+    price: "£10.50",
     isTopPick: false,
     foodType: {
       lowCalories: false,
@@ -154,7 +154,7 @@ export const mealData: IMealData[] = [
     name: "Garlic Bread",
     category: "starters",
     image: "/garlic_bread.png",
-    price: "£4.00",
+    price: "£7.00",
     isTopPick: true,
     foodType: {
       lowCalories: false,
@@ -184,7 +184,7 @@ export const mealData: IMealData[] = [
     name: "Pollo alla Cacciatora",
     category: "main courses",
     image: "/pollo_alla_cacciatora.png",
-    price: "£11.50",
+    price: "£14.50",
     isTopPick: false,
     foodType: {
       lowCalories: false,
@@ -214,7 +214,7 @@ export const mealData: IMealData[] = [
     name: 'Stracotto di Fassona Piemontese',
     category: 'main courses',
     image: '/stracotto_di_fassona_piemontese.png',
-    price: '£13.50',
+    price: '£16.50',
     isTopPick: false,
     foodType: {
       lowCalories: false,
@@ -244,7 +244,7 @@ export const mealData: IMealData[] = [
     name: "Scaloppine al Marsala",
     category: "main courses",
     image: "/scaloppine_al_marsala.png",
-    price: "£12.50",
+    price: "£15.50",
     isTopPick: true,
     foodType: {
       lowCalories: false,
@@ -274,7 +274,7 @@ export const mealData: IMealData[] = [
     name: "Parmigiana di Melanzane",
     category: "main courses",
     image: "/parmigiana_di_melanzane.png",
-    price: "£10.00",
+    price: "£13.00",
     isTopPick: true,
     foodType: {
       lowCalories: false,
@@ -304,7 +304,7 @@ export const mealData: IMealData[] = [
     name: "Peperoni Ripieni",
     category: "main courses",
     image: "/peperoni_ripieni.png",
-    price: "£11.00",
+    price: "£14.00",
     isTopPick: false,
     foodType: {
       lowCalories: false,
@@ -334,7 +334,7 @@ export const mealData: IMealData[] = [
     name: "Margherita Pizza",
     category: "main courses",
     image: "/margherita_pizza.png",
-    price: "£9.00",
+    price: "£12.00",
     isTopPick: true,
     foodType: {
       lowCalories: false,
@@ -364,7 +364,7 @@ export const mealData: IMealData[] = [
     name: "Spaghetti Carbonara",
     category: "main courses",
     image: "/spaghetti_carbonara.png",
-    price: "£10.50",
+    price: "£13.50",
     isTopPick: true,
     foodType: {
       lowCalories: false,
@@ -394,7 +394,7 @@ export const mealData: IMealData[] = [
     name: "Lasagna al Forno",
     category: "main courses",
     image: "/lasagna_al_forno.png",
-    price: "£11.00",
+    price: "£14.00",
     isTopPick: false,
     foodType: {
       lowCalories: false,
@@ -424,7 +424,7 @@ export const mealData: IMealData[] = [
     name: "Chicken Parmigiana",
     category: "main courses",
     image: "/chicken_parmigiana.png",
-    price: "£12.50",
+    price: "£15.50",
     isTopPick: false,
     foodType: {
       lowCalories: false,
@@ -454,7 +454,7 @@ export const mealData: IMealData[] = [
     name: "Risotto ai Funghi",
     category: "main courses",
     image: "/risotto_ai_funghi.png",
-    price: "£11.00",
+    price: "£14.00",
     isTopPick: false,
     foodType: {
       lowCalories: false,
@@ -484,7 +484,7 @@ export const mealData: IMealData[] = [
     name: "Tiramisu",
     category: "desserts",
     image: "/tiramisu.png",
-    price: "£6.00",
+    price: "£9.00",
     isTopPick: true,
     foodType: {
       lowCalories: false,
@@ -514,7 +514,7 @@ export const mealData: IMealData[] = [
     name: "Panna Cotta",
     category: "desserts",
     image: "/panna_cotta.png",
-    price: "£5.50",
+    price: "£8.50",
     isTopPick: false,
     foodType: {
       lowCalories: false,
@@ -544,7 +544,7 @@ export const mealData: IMealData[] = [
     name: "Cannoli",
     category: "desserts",
     image: "/cannoli.png",
-    price: "£5.00",
+    price: "£8.00",
     isTopPick: true,
     foodType: {
       lowCalories: false,
@@ -574,7 +574,7 @@ export const mealData: IMealData[] = [
     name: "Gelato",
     category: "desserts",
     image: "/gelato.png",
-    price: "£4.00",
+    price: "£7.00",
     isTopPick: false,
     foodType: {
       lowCalories: false,
@@ -604,7 +604,7 @@ export const mealData: IMealData[] = [
     name: "Affogato",
     category: "desserts",
     image: "/affogato.png",
-    price: "£5.50",
+    price: "£8.50",
     isTopPick: true,
     foodType: {
       lowCalories: false,
@@ -634,7 +634,7 @@ export const mealData: IMealData[] = [
     name: "Espresso",
     category: "hot drinks",
     image: "/espresso.png",
-    price: "£2.50",
+    price: "£5.50",
     isTopPick: true,
     foodType: {
       lowCalories: true,
@@ -664,7 +664,7 @@ export const mealData: IMealData[] = [
     name: "Cappuccino",
     category: "hot drinks",
     image: "/cappuccino.png",
-    price: "£3.00",
+    price: "£6.00",
     isTopPick: false,
     foodType: {
       lowCalories: false,
@@ -694,7 +694,7 @@ export const mealData: IMealData[] = [
     name: "Latte",
     category: "hot drinks",
     image: "/latte.png",
-    price: "£3.00",
+    price: "£6.00",
     isTopPick: false,
     foodType: {
       lowCalories: false,
@@ -724,7 +724,7 @@ export const mealData: IMealData[] = [
     name: "Americano",
     category: "hot drinks",
     image: "/americano.png",
-    price: "£2.50",
+    price: "£6.50",
     isTopPick: false,
     foodType: {
       lowCalories: true,
@@ -754,7 +754,7 @@ export const mealData: IMealData[] = [
     name: "Tea",
     category: "hot drinks",
     image: "/tea.png",
-    price: "£2.00",
+    price: "£5.00",
     isTopPick: false,
     foodType: {
       lowCalories: true,
@@ -781,10 +781,10 @@ export const mealData: IMealData[] = [
     },
   },
   {
-    name: "Italian Sodas",
+    name: "Italian Soda",
     category: "soft drinks",
     image: "/italian_sodas.png",
-    price: "£3.50",
+    price: "£6.50",
     isTopPick: false,
     foodType: {
       lowCalories: false,
@@ -814,7 +814,7 @@ export const mealData: IMealData[] = [
     name: "Limonata",
     category: "soft drinks",
     image: "/limonata.png",
-    price: "£3.00",
+    price: "£6.00",
     isTopPick: false,
     foodType: {
       lowCalories: false,
@@ -844,7 +844,7 @@ export const mealData: IMealData[] = [
     name: "Aranciata",
     category: "soft drinks",
     image: "/aranciata.png",
-    price: "£3.00",
+    price: "£6.00",
     isTopPick: false,
     foodType: {
       lowCalories: false,
@@ -874,7 +874,7 @@ export const mealData: IMealData[] = [
     name: "Mineral Water",
     category: "soft drinks",
     image: "/mineral_water.png",
-    price: "£2.00",
+    price: "£5.00",
     isTopPick: false,
     foodType: {
       lowCalories: true,
