@@ -10,7 +10,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import Link from "next/link";
 import { Button } from "react-bootstrap";
 import ProductCard from "../meal/productCard";
 

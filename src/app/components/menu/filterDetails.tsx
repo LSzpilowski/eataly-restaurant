@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Slider } from "@/components/ui/slider";
 import { Input } from "@/components/ui/input";
 import { mealData as mealDataArray } from "@/app/data/data";
@@ -24,7 +24,7 @@ const Allergens = [
   "gluten",
 ];
 
-function FilterDetails() {
+function FilterDetails({onFilter}) {
   const [sliderValue, setSliderValue] = useState(17);
   const [foodTypeFilters, setFoodTypeFilters] = useState({
     lowCalories: false,
@@ -50,38 +50,43 @@ function FilterDetails() {
     gluten: false,
   });
 
-  const handleSliderChange = (value) => {
+  const handleSliderChange = (value: number[]) => {
     setSliderValue(value[0]);
   };
 
-  const handleFoodTypeChange = (type) => {
-    setFoodTypeFilters((prevFilters) => ({
+  const handleFoodTypeChange = (type:string) => {
+    setFoodTypeFilters((prevFilters) => (
+      {
       ...prevFilters,
       [type]: !prevFilters[type],
     }));
+
   };
 
-  const handleAllergenChange = (type) => {
+  const handleAllergenChange = (type:string) => {
     setAllergenFilters((prevFilters) => ({
       ...prevFilters,
       [type]: !prevFilters[type],
     }));
   };
 
-  const filterMeals = () => {
-    return mealDataArray.filter((meal) => {
-      const meetsPrice = parseFloat(meal.price.substring(1)) <= sliderValue;
-      const meetsFoodType = Object.keys(foodTypeFilters).every(
-        (key) => !foodTypeFilters[key] || meal.foodType[key]
-      );
-      const meetsAllergens = Object.keys(allergenFilters).every(
-        (key) => !allergenFilters[key] || !meal.allergens[key]
-      );
-      return meetsPrice && meetsFoodType && meetsAllergens;
-    });
-  };
+  useEffect(() => {
+    const filterMeals = () => {
+      return mealDataArray.filter((meal) => {
+        const meetsPrice = parseFloat(meal.price.substring(1)) <= sliderValue;
+        const meetsFoodType = Object.keys(foodTypeFilters).every(
+          (key) => !foodTypeFilters[key] || meal.foodType[key]
+        );
+        const meetsAllergens = Object.keys(allergenFilters).every(
+          (key) => !allergenFilters[key] || !meal.allergens[key]
+        );
+        return meetsPrice && meetsFoodType && meetsAllergens;
+      });
+    };
 
-  const filteredMeals = filterMeals();
+    const filteredMeals = filterMeals();
+    onFilter(filteredMeals);
+  }, [sliderValue, foodTypeFilters, allergenFilters]);
 
   return (
     <div className="flex flex-col items-center border-x-2 w-1/5 fixed top-[149px] right-0 min-h-screen p-5">
