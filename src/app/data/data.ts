@@ -1,4 +1,4 @@
-interface IMealData {
+export interface IMealData {
   name: string;
   category: string;
   image: string;

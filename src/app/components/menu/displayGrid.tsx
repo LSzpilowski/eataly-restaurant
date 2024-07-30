@@ -1,13 +1,18 @@
+import { IMealData } from '@/app/data/data';
 import React from 'react';
 
-function DisplayGrid({ meals }) {
+interface DisplayGridProps {
+  filteredMeals: IMealData[];
+}
+
+
+function DisplayGrid({ filteredMeals }: DisplayGridProps) {
   return (
     <div className='bg-orange-500 w-4/5'>
-      {meals.map((meal, index) => (
+      {filteredMeals.map((meal, index) => (
         <div key={index}>
           <h3>{meal.name}</h3>
           <p>{meal.price}</p>
-          <p>{meal.description}</p>
         </div>
       ))}
     </div>

@@ -1,12 +1,40 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Slider } from "@/components/ui/slider";
 import { Input } from "@/components/ui/input";
-import { mealData as mealDataArray } from "@/app/data/data";
+import { mealData as mealDataArray, IMealData } from "@/app/data/data";
 
-const FoodType = ["lowCalories", "highProtein", "lowCarb", "lowFat"];
-const Allergens = [
+type FoodTypeFilters = {
+  lowCalories: boolean;
+  highProtein: boolean;
+  lowCarb: boolean;
+  lowFat: boolean;
+};
+
+type AllergenFilters = {
+  dairy: boolean;
+  eggs: boolean;
+  fish: boolean;
+  shellfish: boolean;
+  treeNuts: boolean;
+  peanuts: boolean;
+  wheat: boolean;
+  soy: boolean;
+  sesame: boolean;
+  sulphites: boolean;
+  mustard: boolean;
+  celery: boolean;
+  lupin: boolean;
+  molluscs: boolean;
+  gluten: boolean;
+};
+interface FilterDetailsProps {
+  onFilter: (filterData: IMealData[]) => void;
+}
+
+const FoodType: Array<keyof FoodTypeFilters>  = ["lowCalories", "highProtein", "lowCarb", "lowFat"];
+const Allergens: Array<keyof AllergenFilters> = [
   "dairy",
   "eggs",
   "fish",
@@ -24,15 +52,15 @@ const Allergens = [
   "gluten",
 ];
 
-function FilterDetails({onFilter}) {
-  const [sliderValue, setSliderValue] = useState(17);
-  const [foodTypeFilters, setFoodTypeFilters] = useState({
+function FilterDetails({onFilter} : FilterDetailsProps) {
+  const [sliderValue, setSliderValue] = useState<number>(17);
+  const [foodTypeFilters, setFoodTypeFilters] = useState<FoodTypeFilters>({
     lowCalories: false,
     highProtein: false,
     lowCarb: false,
     lowFat: false,
   });
-  const [allergenFilters, setAllergenFilters] = useState({
+  const [allergenFilters, setAllergenFilters] = useState<AllergenFilters>({
     dairy: false,
     eggs: false,
     fish: false,
@@ -50,29 +78,8 @@ function FilterDetails({onFilter}) {
     gluten: false,
   });
 
-  const handleSliderChange = (value: number[]) => {
-    setSliderValue(value[0]);
-  };
-
-  const handleFoodTypeChange = (type:string) => {
-    setFoodTypeFilters((prevFilters) => (
-      {
-      ...prevFilters,
-      [type]: !prevFilters[type],
-    }));
-
-  };
-
-  const handleAllergenChange = (type:string) => {
-    setAllergenFilters((prevFilters) => ({
-      ...prevFilters,
-      [type]: !prevFilters[type],
-    }));
-  };
-
-  useEffect(() => {
-    const filterMeals = () => {
-      return mealDataArray.filter((meal) => {
+    const filterMeals = useCallback(() => {
+      const filteredMeals = mealDataArray.filter((meal) => {
         const meetsPrice = parseFloat(meal.price.substring(1)) <= sliderValue;
         const meetsFoodType = Object.keys(foodTypeFilters).every(
           (key) => !foodTypeFilters[key] || meal.foodType[key]
@@ -82,11 +89,68 @@ function FilterDetails({onFilter}) {
         );
         return meetsPrice && meetsFoodType && meetsAllergens;
       });
-    };
+        onFilter(filteredMeals);
+  }, [sliderValue, foodTypeFilters, allergenFilters, onFilter]);
 
-    const filteredMeals = filterMeals();
-    onFilter(filteredMeals);
-  }, [sliderValue, foodTypeFilters, allergenFilters]);
+  const handleSliderChange = (value: number[]) => {
+    setSliderValue(value[0]);
+  };
+
+  const handleFoodTypeChange = (type: keyof FoodTypeFilters) => {
+    setFoodTypeFilters((prevFilters) => (
+      {
+      ...prevFilters,
+      [type]: !prevFilters[type],
+    }));
+  };
+
+  const handleAllergenChange = (type: keyof AllergenFilters) => {
+    setAllergenFilters((prevFilters) => ({
+      ...prevFilters,
+      [type]: !prevFilters[type],
+    }));
+  };
+
+
+const handleSubmit = () => {
+  filterMeals();
+};
+
+const handleReset = () => {
+    setSliderValue(17);
+    setFoodTypeFilters({
+      lowCalories: false,
+      highProtein: false,
+      lowCarb: false,
+      lowFat: false,
+    });
+    setAllergenFilters({
+      dairy: false,
+      eggs: false,
+      fish: false,
+      shellfish: false,
+      treeNuts: false,
+      peanuts: false,
+      wheat: false,
+      soy: false,
+      sesame: false,
+      sulphites: false,
+      mustard: false,
+      celery: false,
+      lupin: false,
+      molluscs: false,
+      gluten: false,
+    });
+    filterMeals();
+  };
+
+  useEffect(() => {
+    if (sliderValue === 17 &&
+        Object.values(foodTypeFilters).every(value => value === false) &&
+        Object.values(allergenFilters).every(value => value === false)) {
+      filterMeals();
+    }
+  }, [sliderValue, foodTypeFilters, allergenFilters, filterMeals]);
 
   return (
     <div className="flex flex-col items-center border-x-2 w-1/5 fixed top-[149px] right-0 min-h-screen p-5">
@@ -95,7 +159,7 @@ function FilterDetails({onFilter}) {
         <div className="w-full flex flex-col gap-2">
           <p className="font-bold">Price</p>
           <Slider
-            defaultValue={[17]}
+            defaultValue={[sliderValue]}
             max={17}
             min={5}
             step={1}
@@ -139,33 +203,8 @@ function FilterDetails({onFilter}) {
         </div>
       </div>
       <div className="w-full flex flex-col gap-2">
-        <Input type="submit" value="Submit" onClick={() => console.log(filteredMeals)} />
-        <Input type="reset" value="Reset" onClick={() => {
-          setSliderValue(17);
-          setFoodTypeFilters({
-            lowCalories: false,
-            highProtein: false,
-            lowCarb: false,
-            lowFat: false,
-          });
-          setAllergenFilters({
-            dairy: false,
-            eggs: false,
-            fish: false,
-            shellfish: false,
-            treeNuts: false,
-            peanuts: false,
-            wheat: false,
-            soy: false,
-            sesame: false,
-            sulphites: false,
-            mustard: false,
-            celery: false,
-            lupin: false,
-            molluscs: false,
-            gluten: false,
-          });
-        }} />
+        <Input type="submit" value="Submit" onClick={handleSubmit} />
+        <Input type="reset" value="Reset" onClick={handleReset} />
       </div>
     </div>
   );
