@@ -38,7 +38,7 @@ const MenuDescription = [
   },
 ];
 
-const OurNewMenu = () => {
+function OurNewMenu() {
   return (
     <Card className="w-full flex flex-col items-center border-0">
       <CardHeader className="pt-0">

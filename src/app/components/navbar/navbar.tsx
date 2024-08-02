@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import CartNav from "./cartNav";
 import SideNav from "./sideNav";
 
-const Navbar: React.FC = () => {
+function Navbar () {
   const [sideNav, setSideNav] = useState<boolean>(false);
   const [cartNav, setCartNav] = useState<boolean>(false);
 
@@ -16,7 +16,7 @@ const Navbar: React.FC = () => {
   const toggleCartNav = () => setCartNav(!cartNav);
 
   return (
-        <div className="w-full mx-auto flex justify-between items-center p-4 border-b-2 bg-black z-20 bg-opacity-80 sticky top-0">
+        <div className="w-full mx-auto flex justify-between items-center p-4 border-b-2 bg-black z-20 sticky top-0">
           <div className="flex items-center">
             <div
               onClick={toggleSideNav}

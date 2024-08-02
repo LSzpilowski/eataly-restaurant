@@ -11,13 +11,11 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Button } from "react-bootstrap";
-import ProductCard from "../meal/productCard";
+import ProductCard from "../menu/productCard";
 
 type CategoryType<T extends string> = T;
 type FoodCategory = CategoryType<"pizza" | "salad" | "appetizer" | "all">;
 const Category: FoodCategory[] = ["pizza", "salad", "appetizer"];
-
-
 
 function TopPicks() {
   return (
@@ -41,11 +39,13 @@ function TopPicks() {
               .map((meal, index) => (
                 <CarouselItem
                   key={index}
-                  className="basis-auto opacity-100 hover:opacity-80 ease-in-out duration-300 "
+                  className="basis-auto "
                 >
-                  <Button  className="">
-                    <ProductCard image={meal.image} name={meal.name} price={meal.price} />
-                  </Button>
+                  <ProductCard
+                    image={meal.image}
+                    name={meal.name}
+                    price={meal.price}
+                  />
                 </CarouselItem>
               ))}
           </CarouselContent>

@@ -32,7 +32,7 @@ export interface IMealData {
 export const mealData: IMealData[] = [
   {
     name: "Bruschetta al Pomodoro",
-    category: "starters",
+    category: "appetizers",
     image: "/bruschetta_al_pomodoro.png",
     price: "£8.00",
     isTopPick: true,
@@ -62,7 +62,7 @@ export const mealData: IMealData[] = [
   },
   {
     name: "Caprese Salad",
-    category: "starters",
+    category: "appetizers",
     image: "/caprese_salad.png",
     price: "£9.50",
     isTopPick: false,
@@ -92,7 +92,7 @@ export const mealData: IMealData[] = [
   },
   {
     name: "Antipasto Platter",
-    category: "starters",
+    category: "appetizers",
     image: "/antipasto_platter.png",
     price: "£12.00",
     isTopPick: false,
@@ -122,7 +122,7 @@ export const mealData: IMealData[] = [
   },
   {
     name: "Calamari Fritti",
-    category: "starters",
+    category: "appetizers",
     image: "/calamari_fritti.png",
     price: "£10.50",
     isTopPick: false,
@@ -152,7 +152,7 @@ export const mealData: IMealData[] = [
   },
   {
     name: "Garlic Bread",
-    category: "starters",
+    category: "appetizers",
     image: "/garlic_bread.png",
     price: "£7.00",
     isTopPick: true,
@@ -423,7 +423,7 @@ export const mealData: IMealData[] = [
   {
     name: "Chicken Parmigiana",
     category: "main courses",
-    image: "/chicken_parmigiana.png",
+    image: "/pollo_parmigiana.png",
     price: "£15.50",
     isTopPick: false,
     foodType: {

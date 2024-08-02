@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-export default function Footer() {
+function Footer() {
   return (
     <div className='flex flex-row w-full justify-end items-center h-10 border-t-2 px-5 z-20 bg-black'>
       <p className='mr-1'>Coded by</p>
@@ -8,3 +8,5 @@ export default function Footer() {
     </div>
   )
 }
+
+export default Footer;

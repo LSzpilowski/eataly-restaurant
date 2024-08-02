@@ -6,4 +6,4 @@ function DeliveryPage() {
   )
 }
 
-export default DeliveryPage
+export default DeliveryPage;

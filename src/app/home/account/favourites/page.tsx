@@ -1,6 +1,6 @@
 import React from 'react'
 
-const FavouritePage = () => {
+function FavouritePage() {
 
    let myStyle = {
     backgroundImage: "url('img/bg-food.png')",

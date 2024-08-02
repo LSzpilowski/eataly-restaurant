@@ -5,7 +5,7 @@ import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs'
 import {RxDotFilled} from 'react-icons/rx'
 import { mealData } from '@/app/data/data'
 
-const FoodSlider = () => {
+function FoodSlider () {
 
 const [currentIndex, setCurrentIndex] = useState(0)
 const timerRef = useRef(null);
