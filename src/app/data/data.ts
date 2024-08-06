@@ -211,9 +211,9 @@ export const mealData: IMealData[] = [
     },
   },
  {
-    name: 'Stracotto di Fassona Piemontese',
+    name: 'Stracotto di Fassona',
     category: 'main courses',
-    image: '/stracotto_di_fassona_piemontese.png',
+    image: '/stracotto_di_fassona.png',
     price: '£16.50',
     isTopPick: false,
     foodType: {

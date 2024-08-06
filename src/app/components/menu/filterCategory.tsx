@@ -22,12 +22,9 @@ const CategoryButtons = [
   { icon: <RiDrinks2Fill />, category: "soft drinks", label: "Soft drinks" },
 ];
 
-function FilterCategory({ onCategoryChange }) {
-  const [activeCategoryIndex, setActiveCategoryIndex] = useState<number>(0);
-
+function FilterCategory({ onCategoryChange, activeCategoryIndex }) {
   const handleClick = (index: number) => {
-    setActiveCategoryIndex(index);
-    onCategoryChange(CategoryButtons[index].category);
+    onCategoryChange(CategoryButtons[index].category, index);
   };
 
   return (

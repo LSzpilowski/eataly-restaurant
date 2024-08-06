@@ -32,6 +32,13 @@ type AllergenFilters = {
 interface FilterDetailsProps {
   meals: IMealData[];
   onFilter: (filterData: IMealData[]) => void;
+  sliderValue: number;
+  onSliderChange: (value: number[]) => void;
+  foodTypeFilters: FoodTypeFilters;
+  onFoodTypeChange: (type: keyof FoodTypeFilters) => void;
+  allergenFilters: AllergenFilters;
+  onAllergenChange: (type: keyof AllergenFilters) => void;
+  onResetFilters: () => void;
 }
 
 const FoodType: Array<keyof FoodTypeFilters> = [
@@ -58,105 +65,21 @@ const Allergens: Array<keyof AllergenFilters> = [
   "gluten",
 ];
 
-function FilterDetails({ meals, onFilter }: FilterDetailsProps) {
-  const [sliderValue, setSliderValue] = useState<number>(17);
-  const [foodTypeFilters, setFoodTypeFilters] = useState<FoodTypeFilters>({
-    lowCalories: false,
-    highProtein: false,
-    lowCarb: false,
-    lowFat: false,
-  });
-  const [allergenFilters, setAllergenFilters] = useState<AllergenFilters>({
-    dairy: false,
-    eggs: false,
-    fish: false,
-    shellfish: false,
-    treeNuts: false,
-    peanuts: false,
-    wheat: false,
-    soy: false,
-    sesame: false,
-    sulphites: false,
-    mustard: false,
-    celery: false,
-    lupin: false,
-    molluscs: false,
-    gluten: false,
-  });
-
-  const resetAllFilters = useCallback(() => {
-    setSliderValue(17);
-    setFoodTypeFilters({
-      lowCalories: false,
-      highProtein: false,
-      lowCarb: false,
-      lowFat: false,
-    });
-    setAllergenFilters({
-      dairy: false,
-      eggs: false,
-      fish: false,
-      shellfish: false,
-      treeNuts: false,
-      peanuts: false,
-      wheat: false,
-      soy: false,
-      sesame: false,
-      sulphites: false,
-      mustard: false,
-      celery: false,
-      lupin: false,
-      molluscs: false,
-      gluten: false,
-    });
-  }, []);
-
-  const filterMeals = useCallback(() => {
-    const filteredMeals = meals.filter((meal) => {
-      const meetsPrice = parseFloat(meal.price.substring(1)) <= sliderValue;
-      const meetsFoodType = Object.keys(foodTypeFilters).every(
-        (key) => !foodTypeFilters[key] || meal.foodType[key]
-      );
-      const meetsAllergens = Object.keys(allergenFilters).every(
-        (key) => !allergenFilters[key] || !meal.allergens[key]
-      );
-      return meetsPrice && meetsFoodType && meetsAllergens;
-    });
-    onFilter(filteredMeals);
-  }, [sliderValue, foodTypeFilters, allergenFilters, meals, onFilter]);
-
-  const handleSliderChange = (value: number[]) => {
-    setSliderValue(value[0]);
-  };
-
-  const handleFoodTypeChange = (type: keyof FoodTypeFilters) => {
-    setFoodTypeFilters((prevFilters) => ({
-      ...prevFilters,
-      [type]: !prevFilters[type],
-    }));
-  };
-
-  const handleAllergenChange = (type: keyof AllergenFilters) => {
-    setAllergenFilters((prevFilters) => ({
-      ...prevFilters,
-      [type]: !prevFilters[type],
-    }));
-  };
-
-  useEffect(() => {
-    if (
-      sliderValue === 17 &&
-      Object.values(foodTypeFilters).every((value) => value === false) &&
-      Object.values(allergenFilters).every((value) => value === false)
-    ) {
-      filterMeals();
-    }
-  }, [sliderValue, foodTypeFilters, allergenFilters, filterMeals]);
-
+function FilterDetails({
+  meals,
+  onFilter,
+  sliderValue,
+  onSliderChange,
+  foodTypeFilters,
+  onFoodTypeChange,
+  allergenFilters,
+  onAllergenChange,
+  onResetFilters,
+}: FilterDetailsProps) {
   return (
     <div className="md:fixed right-0 flex flex-col items-center justify-between md:w-1/5 p-5  min-h-[80vh]">
       <div className="w-full flex flex-col items-center gap-5 ">
-           <p className=" font-bold hidden md:block">Filters</p>
+        <p className=" font-bold hidden md:block">Filters</p>
         <div className="w-full flex flex-col gap-1">
           <p className="font-bold">Price</p>
           <Slider
@@ -164,7 +87,7 @@ function FilterDetails({ meals, onFilter }: FilterDetailsProps) {
             max={17}
             min={5}
             step={1}
-            onValueChange={handleSliderChange}
+            onValueChange={onSliderChange}
             className="cursor-pointer"
           />
           <p>{`£${sliderValue}`}</p>
@@ -179,7 +102,7 @@ function FilterDetails({ meals, onFilter }: FilterDetailsProps) {
                   id={item}
                   className="mr-2 cursor-pointer"
                   checked={foodTypeFilters[item]}
-                  onChange={() => handleFoodTypeChange(item)}
+                  onChange={() => onFoodTypeChange(item)}
                 />
                 <label htmlFor={item}>
                   {item.replace(/([A-Z])/g, "-$1").toLowerCase()}
@@ -198,7 +121,7 @@ function FilterDetails({ meals, onFilter }: FilterDetailsProps) {
                   id={item}
                   className="mr-2 cursor-pointer"
                   checked={allergenFilters[item]}
-                  onChange={() => handleAllergenChange(item)}
+                  onChange={() => onAllergenChange(item)}
                 />
                 <label htmlFor={item}>
                   {item.replace(/([A-Z])/g, " $1").toLowerCase()}
@@ -208,10 +131,20 @@ function FilterDetails({ meals, onFilter }: FilterDetailsProps) {
           </div>
         </div>
         <div className="w-full flex flex-col gap-2">
-        <Input type="submit" value="Submit" onClick={filterMeals} className="hover:bg-secondary cursor-pointer"/>
-        <Input type="reset" value="Reset" onClick={resetAllFilters} className="hover:bg-secondary cursor-pointer"/>
+          <Input
+            type="submit"
+            value="Submit"
+            onClick={() => onFilter(meals)}
+            className="hover:bg-secondary cursor-pointer"
+          />
+          <Input
+            type="reset"
+            value="Reset"
+            onClick={onResetFilters}
+            className="hover:bg-secondary cursor-pointer"
+          />
+        </div>
       </div>
-     </div>
     </div>
   );
 }

@@ -34,7 +34,7 @@ function DisplayGrid({ meals }: DisplayGridProps) {
             </h3>
             <div className="w-full grid grid-cols-2 md:grid-cols-4 text-center gap-2 md:gap-5 p-0 m-0">
               {filteredMeals.map((meal, mealIndex) => (
-                <div key={mealIndex} className="w-full p-0 m-0">
+                <div key={mealIndex} className="w-full p-0 m-0 overflow-hidden">
                   <ProductCard
                     image={meal.image}
                     name={meal.name}

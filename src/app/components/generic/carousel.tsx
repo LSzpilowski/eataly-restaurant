@@ -34,7 +34,7 @@ function GenCarousel({ title, meals }: IGenCarousel) {
         >
           <CarouselContent className="w-full ">
             {meals.map((meal, index) => (
-              <CarouselItem key={index} className="basis-auto overflow-x-hidden">
+              <CarouselItem key={index} className="basis-auto overflow-hidden">
                 <ProductCard
                   image={meal.image}
                   name={meal.name}
@@ -43,8 +43,8 @@ function GenCarousel({ title, meals }: IGenCarousel) {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="hidden md:flex"/>
-          <CarouselNext className="hidden md:flex"/>
+          <CarouselPrevious className="hidden md:flex" />
+          <CarouselNext className="hidden md:flex" />
         </Carousel>
       </CardContent>
     </Card>
