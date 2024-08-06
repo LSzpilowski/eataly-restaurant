@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     default: "LucAround Restaurant",
     template: `LucAround Restaurant`,
   },
-  description: "Simple LucAround Restaurant app - learning purpose",
+  description: "Restaurant App - learning purpose",
 };
 
 export default function RootLayout({
@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={cn(fontSans.className, "min-h-screen antialiased w-full")}
+        className={cn(fontSans.className, "min-h-screen antialiased w-full overflow-y-scroll")}
         suppressHydrationWarning
       >
         <ThemeProvider attribute="class" defaultTheme="system">

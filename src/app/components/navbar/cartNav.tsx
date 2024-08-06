@@ -11,7 +11,7 @@ function CartNav({ cartNav, toggleCartNav }: ICartNavProps) {
     <>
       {cartNav && (
         <div
-          className="bg-black/60 fixed w-full h-screen z-10 top-0 left-0"
+          className="bg-black/60  w-full h-screen z-10 top-0 left-0"
           onClick={toggleCartNav}
         ></div>
       )}

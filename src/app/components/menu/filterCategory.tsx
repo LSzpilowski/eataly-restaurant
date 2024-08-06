@@ -22,49 +22,44 @@ const CategoryButtons = [
   { icon: <RiDrinks2Fill />, category: "soft drinks", label: "Soft drinks" },
 ];
 
-function FilterCategory({ onCategoryChange}) {
+function FilterCategory({ onCategoryChange }) {
   const [activeCategoryIndex, setActiveCategoryIndex] = useState<number>(0);
 
   const handleClick = (index: number) => {
     setActiveCategoryIndex(index);
-    onCategoryChange(CategoryButtons[index].category)
+    onCategoryChange(CategoryButtons[index].category);
   };
 
-
   return (
-        <div className="w-2/3 flex flex-row justify-center items-center gap-6   ">
-          {CategoryButtons.map((item, index) => (
-            <TooltipProvider delayDuration={100} key={index}>
-              <Tooltip>
-                <TooltipTrigger
-                  className={`border-2 m-1 rounded-full  ${
-                    activeCategoryIndex === index
-                      ? "bg-orange-700 border-slate-300"
-                      : "hover:bg-secondary"
-                  }`}
-                   onClick={() => handleClick(index)}
-                >
-                  {item.icon ? (
-                    <div
-                      className="text-2xl p-3"
-                    >
-                      {item.icon}
-                    </div>
-                  ) : (
-                    <p
-                      className="px-3 py-[0.62rem] m-0 text-lg font-bold"
-                    >
-                      {item.label}
-                    </p>
-                  )}
-                </TooltipTrigger>
-                <TooltipContent side="bottom">
-                  <p>{item.category}</p>
-                </TooltipContent>
-              </Tooltip>
-            </TooltipProvider>
-          ))}
-        </div>
+    <div className="w-4/5 flex flex-row justify-center items-center md:gap-6">
+      {CategoryButtons.map((item, index) => (
+        <TooltipProvider delayDuration={100} key={index}>
+          <Tooltip>
+            <TooltipTrigger
+              className={`border-2 m-1 rounded-full  ${
+                activeCategoryIndex === index
+                  ? "bg-orange-700 border-slate-300"
+                  : "hover:bg-secondary"
+              }`}
+              onClick={() => handleClick(index)}
+            >
+              {item.icon ? (
+                <div className="text-xl md:text-2xl p-2 md:p-3">
+                  {item.icon}
+                </div>
+              ) : (
+                <p className="px-[0.3rem] py-[0.24rem] md:px-3 md:py-[0.62rem] m-0 text-base md:text-lg font-bold">
+                  {item.label}
+                </p>
+              )}
+            </TooltipTrigger>
+            <TooltipContent side="bottom">
+              <p>{item.category}</p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+      ))}
+    </div>
   );
 }
 

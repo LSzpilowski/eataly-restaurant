@@ -46,10 +46,10 @@ function OurNewMenu() {
           Our New Menu
         </CardTitle>
       </CardHeader>
-      <CardContent className="w-full flex flex-row items-center justify-between p-0 gap-10">
-        <div className="w-1/3">
+      <CardContent className="w-full flex flex-col md:flex-row items-center justify-between p-0 gap-10">
+        <div className="w-5/6 md:w-1/3">
           <Image
-          className="rounded-xl"
+            className="rounded-xl"
             src="/img/people-above.png"
             alt="people-above"
             width={450}
@@ -57,7 +57,7 @@ function OurNewMenu() {
             quality={100}
           />
         </div>
-        <Card className="w-2/3 flex flex-col justify-between border-0">
+        <Card className="w-5/6 md:w-2/3 flex flex-col justify-between border-0">
           <CardHeader className="pt-0">
             <CardTitle className="md:text-4xl sm:text-3xl text-2xl font-bold ">
               Limitless paradise of flavours
@@ -75,9 +75,7 @@ function OurNewMenu() {
             </ul>
           </CardContent>
           <CardFooter className="pb-0">
-            <Link
-              href="/home/menu"
-            >
+            <Link href="/home/menu">
               <Button className="bg-orange-700 text-white hover:bg-white hover:text-orange-700 font-medium">
                 Get Started
               </Button>
@@ -87,6 +85,6 @@ function OurNewMenu() {
       </CardContent>
     </Card>
   );
-};
+}
 
 export default OurNewMenu;

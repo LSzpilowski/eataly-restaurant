@@ -4,7 +4,7 @@ import TopPicks from "../components/homePage/topPicks";
 
  function HomePage() {
   return (
-    <div className="w-3/4 flex flex-col items-center gap-16 py-10">
+    <div className="w-full md:w-3/4 flex flex-col items-center gap-16 py-10">
       <FoodSlider />
       <OurNewMenu />
       <TopPicks />

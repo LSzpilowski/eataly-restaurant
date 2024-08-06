@@ -64,9 +64,6 @@
   @apply border-border;
 }
 
-.custom-min-height {
-  min-height: calc(100vh - 119px);
-}
 .filterDetails-min-height {
   min-height: calc(100vh - 189px);
 }

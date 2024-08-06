@@ -154,10 +154,10 @@ function FilterDetails({ meals, onFilter }: FilterDetailsProps) {
   }, [sliderValue, foodTypeFilters, allergenFilters, filterMeals]);
 
   return (
-    <div className="flex flex-col items-center border-x-2 w-1/5 fixed top-[149px] right-0 min-h-screen p-5">
-      <p className="text-2xl font-bold">Filters</p>
-      <div className="w-full flex flex-col items-center gap-10 mt-5">
-        <div className="w-full flex flex-col gap-2">
+    <div className="md:fixed right-0 flex flex-col items-center justify-between md:w-1/5 p-5  min-h-[80vh]">
+      <div className="w-full flex flex-col items-center gap-5 ">
+           <p className=" font-bold hidden md:block">Filters</p>
+        <div className="w-full flex flex-col gap-1">
           <p className="font-bold">Price</p>
           <Slider
             defaultValue={[sliderValue]}
@@ -165,6 +165,7 @@ function FilterDetails({ meals, onFilter }: FilterDetailsProps) {
             min={5}
             step={1}
             onValueChange={handleSliderChange}
+            className="cursor-pointer"
           />
           <p>{`£${sliderValue}`}</p>
         </div>
@@ -176,7 +177,7 @@ function FilterDetails({ meals, onFilter }: FilterDetailsProps) {
                 <input
                   type="checkbox"
                   id={item}
-                  className="mr-2"
+                  className="mr-2 cursor-pointer"
                   checked={foodTypeFilters[item]}
                   onChange={() => handleFoodTypeChange(item)}
                 />
@@ -195,7 +196,7 @@ function FilterDetails({ meals, onFilter }: FilterDetailsProps) {
                 <input
                   type="checkbox"
                   id={item}
-                  className="mr-2"
+                  className="mr-2 cursor-pointer"
                   checked={allergenFilters[item]}
                   onChange={() => handleAllergenChange(item)}
                 />
@@ -206,11 +207,11 @@ function FilterDetails({ meals, onFilter }: FilterDetailsProps) {
             ))}
           </div>
         </div>
+        <div className="w-full flex flex-col gap-2">
+        <Input type="submit" value="Submit" onClick={filterMeals} className="hover:bg-secondary cursor-pointer"/>
+        <Input type="reset" value="Reset" onClick={resetAllFilters} className="hover:bg-secondary cursor-pointer"/>
       </div>
-      <div className="w-full flex flex-col gap-2">
-        <Input type="submit" value="Submit" onClick={filterMeals} />
-        <Input type="reset" value="Reset" onClick={resetAllFilters} />
-      </div>
+     </div>
     </div>
   );
 }
