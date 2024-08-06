@@ -59,6 +59,15 @@
   }
 }
 
+* {
+  box-sizing: border-box;
+  @apply border-border;
+}
+
+.filterDetails-min-height {
+  min-height: calc(100vh - 189px);
+}
+
 @layer base {
   * {
     @apply border-border;

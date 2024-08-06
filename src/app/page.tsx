@@ -1,9 +1,10 @@
-import HomePage from "./home/page";
 
 
-export default function Home() {
+ function Home() {
   return (
-    <div className="w-full ">
-    </div>
+    <>
+    </>
   );
 }
+
+export default Home;

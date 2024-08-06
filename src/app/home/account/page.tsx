@@ -1,19 +1,15 @@
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { TabsContent } from '@radix-ui/react-tabs'
+import React from 'react'
 
-function MyAccountPage() {
+function AccountPage() {
   return (
-    <div className="h-screen flex flex-col items-center justify-center">
+    <div>
+       <div className="h-screen flex flex-col items-center justify-center">
       <Tabs defaultValue="signIn" className="w-[400px]">
         <TabsList className="grid w-full grid-cols-2">
           <TabsTrigger value="signIn">Sign In</TabsTrigger>
@@ -56,7 +52,7 @@ function MyAccountPage() {
               </Button>
             </CardFooter>
             <CardFooter className="flex flex-row justify-center text-sm">
-              <p>Don{"'"}t have an account?</p>
+              <p>Don{`"`}t have an account?</p>
               <TabsList className="border-none bg-normal text-normal underline p-0 m-0">
                 <TabsTrigger className="underline" value="signUp">
                   Sign Up
@@ -120,7 +116,8 @@ function MyAccountPage() {
         </TabsContent>
       </Tabs>
     </div>
-  );
+    </div>
+  )
 }
 
-export default MyAccountPage;
+export default AccountPage
