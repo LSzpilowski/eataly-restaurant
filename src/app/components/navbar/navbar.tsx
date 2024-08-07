@@ -23,8 +23,8 @@ function Navbar() {
         </div>
         <Link href="/home" className="p-0 mr-5 ml-1">
           <h1 className="text-2xl sm:text-3xl lg:text-4xl px-2">
-            Yum
-            <span className="font-bold">Eats</span>
+            Eat
+            <span className="font-bold">aly</span>
           </h1>
         </Link>
         <Link

@@ -79,8 +79,8 @@ function SideNav({ sideNav, toggleSideNav }: ISideNavProps) {
           onClick={toggleSideNav}
           className="w-1/2 p-4 text-4xl flex flex-row justify-center md:justify-start hover:opacity-60"
         >
-          <h2 className="text-black">Yum</h2>
-          <span className="text-orange-700 font-bold">Eats</span>
+          <h2 className="text-black">Eat</h2>
+          <span className="text-orange-700 font-bold">aly</span>
         </Link>
         <div className="flex flex-col text-gray-900 mt-5 overflow-hidden">
           <div

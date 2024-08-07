@@ -45,7 +45,7 @@ function FoodSlider() {
   };
 
   return (
-    <div className="w-11/12 h-48 md:h-[28rem]  relative group over">
+    <div className="w-11/12 md:w-full h-48 md:h-[28rem]  relative group over">
       <div
         className="w-full h-full rounded-2xl bg-center bg-cover duration-1000 transition-all ease-in-out"
         style={{
